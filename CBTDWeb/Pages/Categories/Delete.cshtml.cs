@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CBTDWeb.Pages.Categories
 {
-    public class UpsertModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext _db;
         [BindProperty] //synchronizes form fields with values in code behind
         public Category? objCategory { get; set; }
-        public UpsertModel(ApplicationDbContext db) //dependency injection
+        public DeleteModel(ApplicationDbContext db) //dependency injection
         {
             _db = db;
         }
@@ -37,20 +37,11 @@ namespace CBTDWeb.Pages.Categories
             {
                 return Page();
             }
-            //if this is a new category
-            if (objCategory.Id == 0)
-            {
-                _db.Categories.Add(objCategory);
-                TempData["success"] = "Category added Successfully";
-            }
-            //if category exists
-            else
-            {
-                _db.Categories.Update(objCategory);
-                TempData["success"] = "Category updated Successfully";
-            }
-            _db.SaveChanges();
+            _db.Categories.Remove(objCategory); //Removes from memory
+            TempData["success"] = "Category Deleted Successfully";
+            _db.SaveChanges(); //saves to DB
             return RedirectToPage("./Index");
         }
+
     }
 }
