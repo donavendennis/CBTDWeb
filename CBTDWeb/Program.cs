@@ -1,4 +1,4 @@
-using CBTDWeb.Data;
+using DataAccess;
 using DataAccess.DbInitializer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

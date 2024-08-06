@@ -1,0 +1,30 @@
+﻿@page
+@model CBTDWeb.Pages.Categories.IndexModel
+@{
+}
+<h1>Category List</h1>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+    <tr>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Display Order
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--create a loop here to loop through and display the actual database values -->
+    @foreach (var obj in Model.objCategoryList)
+    {
+        <tr>
+            <td width="50%">@obj.Name</td>
+            <td width="30%">@obj.DisplayOrder</td>
+        </tr>
+    }
+    </tbody>
+</table>
