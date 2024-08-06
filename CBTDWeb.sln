@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBTDWeb", "CBTDWeb\CBTDWeb.csproj", "{BF8FCF92-A479-4446-A6CC-394256B42777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CBTDWeb", "CBTDWeb\CBTDWeb.csproj", "{BF8FCF92-A479-4446-A6CC-394256B42777}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastucture", "Infrastucture\Infrastucture.csproj", "{1BE284C3-5778-4FED-986A-B55DE4205D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastucture", "Infrastucture\Infrastucture.csproj", "{1BE284C3-5778-4FED-986A-B55DE4205D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{5C9C3CE5-296D-4EA2-8DC0-94DA5325C337}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{5C9C3CE5-296D-4EA2-8DC0-94DA5325C337}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{9E58F7B0-0568-45F5-9D34-A9380F595E1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility", "Utility\Utility.csproj", "{9E58F7B0-0568-45F5-9D34-A9380F595E1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
