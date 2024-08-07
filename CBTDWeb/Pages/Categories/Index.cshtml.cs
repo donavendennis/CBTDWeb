@@ -6,12 +6,12 @@ namespace CBTDWeb.Pages.Categories
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _db; //local instance of the database service
+        private readonly UnitOfWork _unitOfWork; //local instance of the database service
         public List<Category> objCategoryList; //our UI front end will support looping through and displaying Categories retrieved from the database and stored in a List
-        public IndexModel(ApplicationDbContext db) //dependency injection of the database service
+        public IndexModel(UnitOfWork unitOfWork) //dependency injection of the database service
         {
-                _db = db;
-                objCategoryList = new List<Category>();
+            _unitOfWork = unitOfWork;
+            objCategoryList = new List<Category>();
         }
         public IActionResult OnGet()
         /*Here are some common implementations of IActionResult:
@@ -27,7 +27,7 @@ namespace CBTDWeb.Pages.Categories
         for download.
         */
         {
-            objCategoryList = _db.Categories.ToList();
+            objCategoryList = _unitOfWork.Category.GetAll().ToList();
             return Page();
         }
     }
