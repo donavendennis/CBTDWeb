@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Interfaces;
 using Infrastructure.Models;
+using Infrastucture.Models;
 
 namespace DataAccess
 {
@@ -14,6 +15,7 @@ namespace DataAccess
 
         private IGenericRepository<Category> _Category;
         private IGenericRepository<Manufacturer> _Manufacturer;
+        private IGenericRepository<Product> _Product;
 
         public IGenericRepository<Category> Category
         {
@@ -40,6 +42,18 @@ namespace DataAccess
                 }
 
                 return _Manufacturer;
+            }
+        }
+
+        public IGenericRepository<Product> Product
+        {
+            get
+            {
+                if (_Product == null)
+                {
+                    _Product = new GenericRepository<Product>(_dbContext);
+                }
+                return _Product;
             }
         }
 
