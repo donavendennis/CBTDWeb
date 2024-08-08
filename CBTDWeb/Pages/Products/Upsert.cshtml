@@ -79,7 +79,7 @@
                     <div class="mb-3">
                         <label for="" class="form-label">@(Model.objProduct.ImageUrl != null ? "Replace " : "")Picture</label>
                         <input class="form-control" type="file" asp-for="@Model.objProduct.ImageUrl">
-                        <span class="text-danger" asp-validation-for="@Model.objProduct.ImageUrl"></span>
+                        <span class="text-danger" asp-validation-for="@Model.objProduct.ImageUrl"></span> @*product image*@
                     </div>
                     <div class="mb-3">@if (Model.objProduct.ImageUrl != null)
                         { <input class="visually-hidden" type="hidden" asp-for="@Model.objProduct.ImageUrl" />
