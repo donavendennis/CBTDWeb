@@ -74,7 +74,7 @@ namespace DataAccess.DbInitializer
                     DozenPrice = .99,
                     Size = "12 oz",
                     UPC = "4894034",
-                    ImageUrl = "/images/objProducts/Coke.jpg",
+                    ImageUrl = "/images/Products/Coke.jpg",
                     CategoryId = 1,
                     ManufacturerId =1
                 },
@@ -88,7 +88,7 @@ namespace DataAccess.DbInitializer
                     DozenPrice = 6.99,
                     Size = "750 ml",
                     UPC = "031259008943",
-                    ImageUrl = "/images/objProducts/YellowTail.png",
+                    ImageUrl = "/images/Products/YellowTail.png",
                     CategoryId = 2,
                     ManufacturerId = 2
                 },
@@ -102,7 +102,7 @@ namespace DataAccess.DbInitializer
                     DozenPrice = 9.99,
                     Size = "750 ml",
                     UPC = "099988071096",
-                    ImageUrl = "/images/objProducts/menage.jpg",
+                    ImageUrl = "/images/Products/menage.jpg",
                     CategoryId = 2,
                     ManufacturerId = 3
                 },
@@ -116,7 +116,7 @@ namespace DataAccess.DbInitializer
                     DozenPrice = .69,
                     Size = "1.75 oz",
                     UPC = "028400443753",
-                    ImageUrl = "/images/objProducts/doritos.jpg",
+                    ImageUrl = "/images/Products/doritos.jpg",
                     CategoryId = 3,
                     ManufacturerId = 4
                 },
@@ -131,7 +131,7 @@ namespace DataAccess.DbInitializer
                     DozenPrice = .69,
                     Size = "2 oz",
                     UPC = "028400443661",
-                    ImageUrl = "/images/objProducts/cheetos.jpg",
+                    ImageUrl = "/images/Products/cheetos.jpg",
                     CategoryId = 3,
                     ManufacturerId = 4
                 }
