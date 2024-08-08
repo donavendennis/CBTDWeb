@@ -1,6 +1,5 @@
 ﻿using Infrastructure.Interfaces;
 using Infrastructure.Models;
-using Infrastucture.Models;
 
 namespace DataAccess
 {

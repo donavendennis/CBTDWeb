@@ -1,6 +1,5 @@
 ﻿using Infrastructure.Interfaces;
 using Infrastructure.Models;
-using Infrastucture.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.DbInitializer
