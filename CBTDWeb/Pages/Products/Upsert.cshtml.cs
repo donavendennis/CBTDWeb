@@ -1,6 +1,5 @@
 using DataAccess;
 using Infrastructure.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -34,17 +33,17 @@ namespace CBTDWeb.Pages.Products
             objProduct = new Product();
             CategoryList = _unitOfWork.Category.GetAll()
                 .Select(c => new SelectListItem
-                    {
-                        Text = c.Name,
-                        Value = c.Id.ToString()
-                    }
+                {
+                    Text = c.Name,
+                    Value = c.Id.ToString()
+                }
                 );
             ManufacturerList = _unitOfWork.Manufacturer.GetAll()
                 .Select(m => new SelectListItem
-                    {
-                        Text = m.Name,
-                        Value = m.Id.ToString()
-                    }
+                {
+                    Text = m.Name,
+                    Value = m.Id.ToString()
+                }
                 );
 
             if (id == null || id == 0) //create mode

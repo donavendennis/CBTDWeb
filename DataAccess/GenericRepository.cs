@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Interfaces;
+using Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -34,6 +35,19 @@ namespace DataAccess
             _dbContext.Set<T>().RemoveRange(entities);
             _dbContext.SaveChanges();
         }
+
+        public int DecrementCount(ShoppingCart shoppingCart, int count)
+        {
+            shoppingCart.Count -= count;
+            return shoppingCart.Count;
+        }
+
+        public int IncrementCount(ShoppingCart shoppingCart, int count)
+        {
+            shoppingCart.Count += count;
+            return shoppingCart.Count;
+        }
+
 
         public virtual T Get(Expression<Func<T, bool>> predicate, bool trackChanges = false, string? includes = null)
         {

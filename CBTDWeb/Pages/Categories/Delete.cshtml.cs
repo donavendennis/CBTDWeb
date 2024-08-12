@@ -1,5 +1,4 @@
 using DataAccess;
-using Infrastructure.Interfaces;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

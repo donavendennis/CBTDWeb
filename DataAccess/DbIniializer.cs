@@ -1,17 +1,23 @@
 ﻿using Infrastructure.Interfaces;
 using Infrastructure.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
+using Utility;
 
 namespace DataAccess.DbInitializer
 {
     public class DbInitializer : IDbInitializer
     {
         private readonly ApplicationDbContext _db;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public DbInitializer(ApplicationDbContext db)
+
+        public DbInitializer(ApplicationDbContext db, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _db = db;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
 
@@ -37,6 +43,33 @@ namespace DataAccess.DbInitializer
                 return; //DB has been seeded
             }
 
+            //create roles if they are not created
+            //SD is a “Static Details” class we will create in Utility to hold constant strings for Roles
+
+            _roleManager.CreateAsync(new IdentityRole(SD.AdminRole)).GetAwaiter().GetResult();
+            _roleManager.CreateAsync(new IdentityRole(SD.ShipperRole)).GetAwaiter().GetResult();
+            _roleManager.CreateAsync(new IdentityRole(SD.CustomerRole)).GetAwaiter().GetResult();
+
+            //Create at least one "Super Admin" or “Admin”.  Repeat the process for other users you want to seed
+
+            _userManager.CreateAsync(new ApplicationUser
+            {
+                UserName = "donavendennis@mail.weber.edu",
+                Email = "donavendennis@mail.weber.edu",
+                FirstName = "Donaven",
+                LastName = "Dennis",
+                PhoneNumber = "4356801687",
+                StreetAddress = "2925 North Ave. Trlr 13",
+                State = "CO",
+                PostalCode = "81504",
+                City = "Grand Junction"
+            }, "Password1234$").GetAwaiter().GetResult();
+
+            ApplicationUser user = _db.ApplicationUsers.FirstOrDefault(u => u.Email == "donavendennis@mail.weber.edu");
+
+            _userManager.AddToRoleAsync(user, SD.AdminRole).GetAwaiter().GetResult();
+
+
             var Categories = new List<Category>
             {
                 new Category { Name = "Non-Alcoholic Beverages", DisplayOrder = 1 },
@@ -50,7 +83,7 @@ namespace DataAccess.DbInitializer
             }
             _db.SaveChanges();
 
-            var Manufacturers = new List<Manufacturer> 
+            var Manufacturers = new List<Manufacturer>
             {
                 new Manufacturer { Name = "Coca Cola" },
                 new Manufacturer { Name = "Yellow Tail"},
