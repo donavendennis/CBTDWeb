@@ -12,7 +12,6 @@ namespace DataAccess
 			_db = db;
 		}
 
-
 		public void UpdateStatus(int id, string orderStatus, string? paymentStatus = null)
 		{
 			var orderFromDb = _db.OrderHeader.FirstOrDefault(u => u.Id == id);
@@ -25,6 +24,12 @@ namespace DataAccess
 				}
 			}
 		}
-
+		public void UpdateStripePaymentID(int id, string sessionId, string paymentLinkId)
+		{
+			var orderFromDb = _db.OrderHeader.FirstOrDefault(u => u.Id == id);
+			orderFromDb.PaymentDate = DateTime.Now;
+			orderFromDb.SessionId = sessionId;
+			orderFromDb.PaymentIntentId = paymentLinkId;
+		}
 	}
 }
